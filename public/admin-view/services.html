@@ -1,0 +1,888 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<base href='https://smm.magicpi.top/'>
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+
+<title>services</title>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src='https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js'></script>
+<script src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js'></script>
+<![endif]-->  
+<link href='social.thietkeweb5s.net/admin/css/admin/custom.css' rel='stylesheet'>
+<link rel='stylesheet' href='social.thietkeweb5s.net/admin/css/admin/bootstrap.css'>
+<link rel='stylesheet' href='social.thietkeweb5s.net/admin/css/admin/style.css'>
+<link rel='stylesheet' href='social.thietkeweb5s.net/admin/css/admin/toastDemo.css'>
+<link rel='stylesheet' href='social.thietkeweb5s.net/admin/js/datepicker/css/bootstrap-datepicker3.min.css'>
+<link rel='stylesheet' href='social.thietkeweb5s.net/admin/css/admin/tinytoggle.min.css' rel='stylesheet'>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css'>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+
+
+
+</head>
+<body class=''>
+<nav  class='navbar navbar-fixed-top navbar-default'>
+<div class='container-fluid'>
+<div class='navbar-header'>
+<button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-navbar-collapse'>
+<span class='sr-only'>Toggle navigation</span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<div class='collapse navbar-collapse' data-nav='navbar-priority' id='bs-navbar-collapse'>
+<ul id='navResponsive' class='nav navbar-nav navbar-left-block'>
+<li class=''><a href='https://smm.magicpi.top/admin/clients'>CLIENTS</a></li>
+  
+    
+<li class=''><a href='https://smm.magicpi.top/admin/orders'>ORDERS</a></li>
+   
+
+  
+
+       
+<li class=''><a href='https://smm.magicpi.top/admin/tasks'>TASKS 
+ 
+<span class='badge' style='background-color: #6d47bb'>4</span>
+ 
+</a></li> 
+
+
+    
+<li class='active'><a href='https://smm.magicpi.top/admin/services'>SERVICES</a></li>
+  
+<li class=''><a href='https://smm.magicpi.top/admin/payments'> PAYMENTS </a></li>
+     
+       
+<li class=''><a href='https://smm.magicpi.top/admin/tickets'>TICKETS  </a></li>
+
+<li class=''><a href='https://smm.magicpi.top/admin/reports'>REPORTS</a></li> 
+          
+<li class=''><a href='https://smm.magicpi.top/admin/appearance'>APPEARANCE</a></li> 
+
+<li class=''><a href='https://smm.magicpi.top/admin/settings'>SETTINGS</a></li>
+
+<li class=''><a href='https://smm.magicpi.top/admin/logs'>LOGS </a></li> 
+
+</ul>  
+<ul id='w4' class='nav navbar-nav navbar-right'>
+<li><a href='#' data-toggle='modal' data-target='#managerModal'><img src='https://i.imgur.com/D8QmgSY.png' width='20' height='20'></a></li><li class='nav-dark-mode'><a href='/admin?theme=2&refer=services'><i class='fa fa-moon'></i></a></li>
+<li class=''><a href='https://smm.magicpi.top/admin/account'>ACCOUNT</a></li>      
+<li><a href='https://smm.magicpi.top/logout'>LOGOUT </a></li></ul>        
+</div>
+</div>
+</nav>
+
+ 
+<div class="container-fluid">
+                          <ul class="nav nav-tabs nav-tabs__service">
+      <li class="p-b"><button class="btn btn-default" data-toggle="modal" data-target="#modalDiv" data-action="new_service">NEW SERVICE</button></li>
+      <li class="p-b"><button class="btn btn-default m-l" data-toggle="modal" data-target="#modalDiv" data-action="new_category">NEW CATEGORY</button></li>
+
+      <li class="p-b"><button class="btn btn-default m-l" data-toggle="modal" data-target="#modalDiv" data-action="new_subscriptions">ADD SUBSCRIPTIONS</button></li>
+      
+	  
+      <li class="pull-right">
+         <div class="form-inline"><label for="service-search-input" class="service-search__icon"></label>
+           <input class="form-control" placeholder="Search for service..." id="priceService" type="text" value="">
+         </div>
+      </li>
+      <li class="pull-right">
+        <a data-toggle="modal" data-target="#modalDiv" data-action="import_services">IMPORT FROM API</a>
+      </li>
+   </ul>
+
+   <div class="sticker-head">
+      <table class="service-block__header" id="sticker">
+         <thead>
+             <th class="checkAll-th service-block__checker null">
+                 <div class="checkAll-holder">
+                    <input type="checkbox" id="checkAll">
+                    <input type="hidden" id="checkAllText" value="order">
+                  </div>
+                  <div class="action-block">
+                    <ul class="action-list">
+                       <li><span class="countOrders"></span> service selected</li>
+                       <li>
+                         <div class="dropdown">
+                           <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown"> Bulk Operations <span class="caret"></span></button>
+                           <ul class="dropdown-menu">
+                             <li>
+                                <a class="bulkorder" data-type="active">Activate All</a>
+                                <a class="bulkorder" data-type="deactive">Disable All</a>
+                                <a class="bulkorder" data-type="del_price">Reset All Discounts</a>
+                                <a class="bulkorder" data-type="del_service">Delete All</a>
+                                </li>
+                           </ul>
+                         </div>
+                       </li>
+                     </ul>
+                  </div>
+               </th>
+               <th class="service-block__id">ID</th>
+               <th class="service-block__service">Service Name</th>
+               <th class="service-block__type">
+                 Service Type
+               </th>
+               <th class="service-block__provider">Provider</th>
+               <th class="service-block__rate">Price</th>
+               <th class="service-block__minorder">Min</th>
+               <th class="service-block__minorder">Max</th>
+               <th class="service-block__visibility">Status</th>
+               <th class="service-block__action text-right"><span id="allServices" class="service-block__hide-all fa fa-compress"></span></th>
+            </tr>
+         </thead>
+      </table>
+   </div>
+
+   <div class="service-block__body">
+      <div class="service-block__body-scroll">
+            <div style="width: 100%; height: 0px;"></div>
+            <form action="https://smm.magicpi.top/admin/services/multi-action" method="post" id="changebulkForm">
+            <div style="" class="category-sortable">
+                              <div class="categories" data-id="1">
+                  <div class="  service-block__category ">
+                     <div class="service-block__category-title"  class="categorySortable" data-category="Instagram" id="category-1">
+                        <div class="service-block__drag handle">
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                              <title>Drag-Handle</title>
+                              <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                           </svg>
+                        </div>
+                        Instagram                        <div class="dropdown-inline">
+                          <div class="dropdown">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_category" data-id="1">Edit Category </a></li>
+                                                              <li><a href="https://smm.magicpi.top/admin/services/category-deactive/1">Disable Category</a></li>
+                                                            
+                            </ul>
+                          </div>
+                          </div>
+                        
+                          <div class="service-block__collapse-block"><div id="collapedAdd-1" class="service-block__collapse-button" data-category="category-1"></div></div>
+                                             </div>
+                     <div class="collapse in">
+                        <div class="service-block__packages">
+                           <table id="servicesTableList" class="Servicecategory-1">
+                              <tbody class="service-sortable">
+                                  <div class="serviceSortable" id="Servicecategory-1" data-id="category-1">
+                                                                           <tr id="serviceshowcategory-1" class="ui-state-default "  data-category="category-1" data-id="service-1" data-service="Instagram Followers [Real Mix] No Refill ⛔">
+                                                                                     <td class="service-block__checker">
+                                                                                             <span></span>
+                                               <div class="service-block__checkbox">
+                                                  <div class="service-block__drag handle">
+                                                     <svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                           <title>Drag-Handle</title>
+                                                           <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                                                        </svg>
+                                                     </svg>
+                                                  </div>
+                                                  <input type="checkbox" class="selectOrder" name="service[1]" value="1" style="border:1px solid #fff">
+                                               </div>
+                                            </td>
+                                            <td class="service-block__id">1</td>
+                                            <td class="service-block__service">Instagram Followers [Real Mix] No Refill ⛔</td>
+                                            <td class="service-block__type" nowrap="">Default</td>
+                                            <td class="service-block__provider">Manuel </td>
+                                            <td class="service-block__rate">
+                                                                                             <div style="">0.2323</div>
+
+                                                                                           </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">50</span></div>
+                                                                                           </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">50000</span></div>
+                                                                                           </td>
+                                            <td class="service-block__visibility">Active  </td>
+                                            <td class="service-block__action">
+                                              <div class="dropdown pull-right">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_service" data-id="1">Edit Service</a></li>
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_description" data-id="1">Edit Description</a></li>
+                                                                                                      <li><a href="https://smm.magicpi.top/admin/services/service-deactive/1">Disable Service</a></li>
+                                                  <li><a href="https://smm.magicpi.top/admin/services/del_price/1">Reset Discounts</a></li>
+                                                  <li><a href="#"data-toggle="modal" data-target="#confirmChange" data-href="https://smm.magicpi.top/admin/services/delete/1">Delete Service</a></li>
+                                                     
+                                                </ul>
+                                              </div>
+                                            </td>
+                                                                                 </tr>
+                                                                            <tr id="serviceshowcategory-1" class="ui-state-default "  data-category="category-1" data-id="service-2" data-service="ID:5700 Instagram Followers [Real Mix] No Refill ⛔">
+                                                                                     <td class="service-block__checker">
+                                                                                             <span></span>
+                                               <div class="service-block__checkbox">
+                                                  <div class="service-block__drag handle">
+                                                     <svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                           <title>Drag-Handle</title>
+                                                           <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                                                        </svg>
+                                                     </svg>
+                                                  </div>
+                                                  <input type="checkbox" class="selectOrder" name="service[2]" value="1" style="border:1px solid #fff">
+                                               </div>
+                                            </td>
+                                            <td class="service-block__id">2</td>
+                                            <td class="service-block__service">ID:5700 Instagram Followers [Real Mix] No Refill ⛔</td>
+                                            <td class="service-block__type" nowrap="">Default</td>
+                                            <td class="service-block__provider">starsmmpanels <div class="service-block__provider-value">10</div></td>
+                                            <td class="service-block__rate">
+                                                                                             <div style="color: green">0.21209999999999998</div>
+
+                                               <div class="service-block__provider-value"><i class="fa fa-"></i> 0.2100</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">10</span></div>
+                                               <div class="service-block__provider-value">10</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">20000</span></div>
+                                               <div class="service-block__provider-value">20000</div>                                            </td>
+                                            <td class="service-block__visibility">Active  </td>
+                                            <td class="service-block__action">
+                                              <div class="dropdown pull-right">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_service" data-id="2">Edit Service</a></li>
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_description" data-id="2">Edit Description</a></li>
+                                                                                                      <li><a href="https://smm.magicpi.top/admin/services/service-deactive/2">Disable Service</a></li>
+                                                  <li><a href="https://smm.magicpi.top/admin/services/del_price/2">Reset Discounts</a></li>
+                                                  <li><a href="#"data-toggle="modal" data-target="#confirmChange" data-href="https://smm.magicpi.top/admin/services/delete/2">Delete Service</a></li>
+                                                     
+                                                </ul>
+                                              </div>
+                                            </td>
+                                                                                 </tr>
+                                                                            <tr id="serviceshowcategory-1" class="ui-state-default "  data-category="category-1" data-id="service-3" data-service="Instagram Followers [Mixed] No Refill ⛔">
+                                                                                     <td class="service-block__checker">
+                                                                                             <span></span>
+                                               <div class="service-block__checkbox">
+                                                  <div class="service-block__drag handle">
+                                                     <svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                           <title>Drag-Handle</title>
+                                                           <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                                                        </svg>
+                                                     </svg>
+                                                  </div>
+                                                  <input type="checkbox" class="selectOrder" name="service[3]" value="1" style="border:1px solid #fff">
+                                               </div>
+                                            </td>
+                                            <td class="service-block__id">3</td>
+                                            <td class="service-block__service">Instagram Followers [Mixed] No Refill ⛔</td>
+                                            <td class="service-block__type" nowrap="">Default</td>
+                                            <td class="service-block__provider">starsmmpanels <div class="service-block__provider-value">11</div></td>
+                                            <td class="service-block__rate">
+                                                                                             <div style="color: green">0.2424</div>
+
+                                               <div class="service-block__provider-value"><i class="fa fa-usd"></i> 0.2400</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">50</span></div>
+                                               <div class="service-block__provider-value">50</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">20000</span></div>
+                                               <div class="service-block__provider-value">20000</div>                                            </td>
+                                            <td class="service-block__visibility">Active  </td>
+                                            <td class="service-block__action">
+                                              <div class="dropdown pull-right">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_service" data-id="3">Edit Service</a></li>
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_description" data-id="3">Edit Description</a></li>
+                                                                                                      <li><a href="https://smm.magicpi.top/admin/services/service-deactive/3">Disable Service</a></li>
+                                                  <li><a href="https://smm.magicpi.top/admin/services/del_price/3">Reset Discounts</a></li>
+                                                  <li><a href="#"data-toggle="modal" data-target="#confirmChange" data-href="https://smm.magicpi.top/admin/services/delete/3">Delete Service</a></li>
+                                                     
+                                                </ul>
+                                              </div>
+                                            </td>
+                                                                                 </tr>
+                                                                            <tr id="serviceshowcategory-1" class="ui-state-default "  data-category="category-1" data-id="service-4" data-service="Instagram Followers [Real Mix] No Refill ⛔">
+                                                                                     <td class="service-block__checker">
+                                                                                             <span></span>
+                                               <div class="service-block__checkbox">
+                                                  <div class="service-block__drag handle">
+                                                     <svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                           <title>Drag-Handle</title>
+                                                           <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                                                        </svg>
+                                                     </svg>
+                                                  </div>
+                                                  <input type="checkbox" class="selectOrder" name="service[4]" value="1" style="border:1px solid #fff">
+                                               </div>
+                                            </td>
+                                            <td class="service-block__id">4</td>
+                                            <td class="service-block__service">Instagram Followers [Real Mix] No Refill ⛔</td>
+                                            <td class="service-block__type" nowrap="">Default</td>
+                                            <td class="service-block__provider">starsmmpanels <div class="service-block__provider-value">12</div></td>
+                                            <td class="service-block__rate">
+                                                                                             <div style="color: green">0.2525</div>
+
+                                               <div class="service-block__provider-value"><i class="fa fa-usd"></i> 0.2500</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">10</span></div>
+                                               <div class="service-block__provider-value">10</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">40000</span></div>
+                                               <div class="service-block__provider-value">40000</div>                                            </td>
+                                            <td class="service-block__visibility">Active  </td>
+                                            <td class="service-block__action">
+                                              <div class="dropdown pull-right">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_service" data-id="4">Edit Service</a></li>
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_description" data-id="4">Edit Description</a></li>
+                                                                                                      <li><a href="https://smm.magicpi.top/admin/services/service-deactive/4">Disable Service</a></li>
+                                                  <li><a href="https://smm.magicpi.top/admin/services/del_price/4">Reset Discounts</a></li>
+                                                  <li><a href="#"data-toggle="modal" data-target="#confirmChange" data-href="https://smm.magicpi.top/admin/services/delete/4">Delete Service</a></li>
+                                                     
+                                                </ul>
+                                              </div>
+                                            </td>
+                                                                                 </tr>
+                                                                            <tr id="serviceshowcategory-1" class="ui-state-default "  data-category="category-1" data-id="service-5" data-service="Instagram Followers [Real Mix] No Refill">
+                                                                                     <td class="service-block__checker">
+                                                                                             <span></span>
+                                               <div class="service-block__checkbox">
+                                                  <div class="service-block__drag handle">
+                                                     <svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                           <title>Drag-Handle</title>
+                                                           <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                                                        </svg>
+                                                     </svg>
+                                                  </div>
+                                                  <input type="checkbox" class="selectOrder" name="service[5]" value="1" style="border:1px solid #fff">
+                                               </div>
+                                            </td>
+                                            <td class="service-block__id">5</td>
+                                            <td class="service-block__service">Instagram Followers [Real Mix] No Refill</td>
+                                            <td class="service-block__type" nowrap="">Default</td>
+                                            <td class="service-block__provider">starsmmpanels <div class="service-block__provider-value">13</div></td>
+                                            <td class="service-block__rate">
+                                                                                             <div style="color: green">0.28280000000000005</div>
+
+                                               <div class="service-block__provider-value"><i class="fa fa-usd"></i> 0.2800</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">50</span></div>
+                                               <div class="service-block__provider-value">50</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">3000</span></div>
+                                               <div class="service-block__provider-value">3000</div>                                            </td>
+                                            <td class="service-block__visibility">Active  </td>
+                                            <td class="service-block__action">
+                                              <div class="dropdown pull-right">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_service" data-id="5">Edit Service</a></li>
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_description" data-id="5">Edit Description</a></li>
+                                                                                                      <li><a href="https://smm.magicpi.top/admin/services/service-deactive/5">Disable Service</a></li>
+                                                  <li><a href="https://smm.magicpi.top/admin/services/del_price/5">Reset Discounts</a></li>
+                                                  <li><a href="#"data-toggle="modal" data-target="#confirmChange" data-href="https://smm.magicpi.top/admin/services/delete/5">Delete Service</a></li>
+                                                     
+                                                </ul>
+                                              </div>
+                                            </td>
+                                                                                 </tr>
+                                                                            <tr id="serviceshowcategory-1" class="ui-state-default "  data-category="category-1" data-id="service-6" data-service="Instagram Followers [Real Mix] No Refill">
+                                                                                     <td class="service-block__checker">
+                                                                                             <span></span>
+                                               <div class="service-block__checkbox">
+                                                  <div class="service-block__drag handle">
+                                                     <svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                           <title>Drag-Handle</title>
+                                                           <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                                                        </svg>
+                                                     </svg>
+                                                  </div>
+                                                  <input type="checkbox" class="selectOrder" name="service[6]" value="1" style="border:1px solid #fff">
+                                               </div>
+                                            </td>
+                                            <td class="service-block__id">6</td>
+                                            <td class="service-block__service">Instagram Followers [Real Mix] No Refill</td>
+                                            <td class="service-block__type" nowrap="">Default</td>
+                                            <td class="service-block__provider">starsmmpanels <div class="service-block__provider-value">14</div></td>
+                                            <td class="service-block__rate">
+                                                                                             <div style="color: green">0.2424</div>
+
+                                               <div class="service-block__provider-value"><i class="fa fa-usd"></i> 0.2400</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">50</span></div>
+                                               <div class="service-block__provider-value">50</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">50000</span></div>
+                                               <div class="service-block__provider-value">50000</div>                                            </td>
+                                            <td class="service-block__visibility">Active  </td>
+                                            <td class="service-block__action">
+                                              <div class="dropdown pull-right">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_service" data-id="6">Edit Service</a></li>
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_description" data-id="6">Edit Description</a></li>
+                                                                                                      <li><a href="https://smm.magicpi.top/admin/services/service-deactive/6">Disable Service</a></li>
+                                                  <li><a href="https://smm.magicpi.top/admin/services/del_price/6">Reset Discounts</a></li>
+                                                  <li><a href="#"data-toggle="modal" data-target="#confirmChange" data-href="https://smm.magicpi.top/admin/services/delete/6">Delete Service</a></li>
+                                                     
+                                                </ul>
+                                              </div>
+                                            </td>
+                                                                                 </tr>
+                                                                            <tr id="serviceshowcategory-1" class="ui-state-default "  data-category="category-1" data-id="service-7" data-service="Instagram Followers [Mix] No Refill">
+                                                                                     <td class="service-block__checker">
+                                                                                             <span></span>
+                                               <div class="service-block__checkbox">
+                                                  <div class="service-block__drag handle">
+                                                     <svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                           <title>Drag-Handle</title>
+                                                           <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                                                        </svg>
+                                                     </svg>
+                                                  </div>
+                                                  <input type="checkbox" class="selectOrder" name="service[7]" value="1" style="border:1px solid #fff">
+                                               </div>
+                                            </td>
+                                            <td class="service-block__id">7</td>
+                                            <td class="service-block__service">Instagram Followers [Mix] No Refill</td>
+                                            <td class="service-block__type" nowrap="">Default</td>
+                                            <td class="service-block__provider">starsmmpanels <div class="service-block__provider-value">15</div></td>
+                                            <td class="service-block__rate">
+                                                                                             <div style="color: green">0.21209999999999998</div>
+
+                                               <div class="service-block__provider-value"><i class="fa fa-"></i> 0.2100</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">10</span></div>
+                                               <div class="service-block__provider-value">10</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">20000</span></div>
+                                               <div class="service-block__provider-value">20000</div>                                            </td>
+                                            <td class="service-block__visibility">Active  </td>
+                                            <td class="service-block__action">
+                                              <div class="dropdown pull-right">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_service" data-id="7">Edit Service</a></li>
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_description" data-id="7">Edit Description</a></li>
+                                                                                                      <li><a href="https://smm.magicpi.top/admin/services/service-deactive/7">Disable Service</a></li>
+                                                  <li><a href="https://smm.magicpi.top/admin/services/del_price/7">Reset Discounts</a></li>
+                                                  <li><a href="#"data-toggle="modal" data-target="#confirmChange" data-href="https://smm.magicpi.top/admin/services/delete/7">Delete Service</a></li>
+                                                     
+                                                </ul>
+                                              </div>
+                                            </td>
+                                                                                 </tr>
+                                                                            <tr id="serviceshowcategory-1" class="ui-state-default "  data-category="category-1" data-id="service-8" data-service="Instagram Followers [Real Mix] No Refill">
+                                                                                     <td class="service-block__checker">
+                                                                                             <span></span>
+                                               <div class="service-block__checkbox">
+                                                  <div class="service-block__drag handle">
+                                                     <svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                           <title>Drag-Handle</title>
+                                                           <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                                                        </svg>
+                                                     </svg>
+                                                  </div>
+                                                  <input type="checkbox" class="selectOrder" name="service[8]" value="1" style="border:1px solid #fff">
+                                               </div>
+                                            </td>
+                                            <td class="service-block__id">8</td>
+                                            <td class="service-block__service">Instagram Followers [Real Mix] No Refill</td>
+                                            <td class="service-block__type" nowrap="">Default</td>
+                                            <td class="service-block__provider">starsmmpanels <div class="service-block__provider-value">16</div></td>
+                                            <td class="service-block__rate">
+                                                                                             <div style="color: green">0.2525</div>
+
+                                               <div class="service-block__provider-value"><i class="fa fa-usd"></i> 0.2500</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">50</span></div>
+                                               <div class="service-block__provider-value">50</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">20000</span></div>
+                                               <div class="service-block__provider-value">20000</div>                                            </td>
+                                            <td class="service-block__visibility">Active  </td>
+                                            <td class="service-block__action">
+                                              <div class="dropdown pull-right">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_service" data-id="8">Edit Service</a></li>
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_description" data-id="8">Edit Description</a></li>
+                                                                                                      <li><a href="https://smm.magicpi.top/admin/services/service-deactive/8">Disable Service</a></li>
+                                                  <li><a href="https://smm.magicpi.top/admin/services/del_price/8">Reset Discounts</a></li>
+                                                  <li><a href="#"data-toggle="modal" data-target="#confirmChange" data-href="https://smm.magicpi.top/admin/services/delete/8">Delete Service</a></li>
+                                                     
+                                                </ul>
+                                              </div>
+                                            </td>
+                                                                                 </tr>
+                                                                            <tr id="serviceshowcategory-1" class="ui-state-default "  data-category="category-1" data-id="service-9" data-service="Instagram Followers [Nice Quality] No Refill ⛔">
+                                                                                     <td class="service-block__checker">
+                                                                                             <span></span>
+                                               <div class="service-block__checkbox">
+                                                  <div class="service-block__drag handle">
+                                                     <svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                           <title>Drag-Handle</title>
+                                                           <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                                                        </svg>
+                                                     </svg>
+                                                  </div>
+                                                  <input type="checkbox" class="selectOrder" name="service[9]" value="1" style="border:1px solid #fff">
+                                               </div>
+                                            </td>
+                                            <td class="service-block__id">9</td>
+                                            <td class="service-block__service">Instagram Followers [Nice Quality] No Refill ⛔</td>
+                                            <td class="service-block__type" nowrap="">Default</td>
+                                            <td class="service-block__provider">starsmmpanels <div class="service-block__provider-value">17</div></td>
+                                            <td class="service-block__rate">
+                                                                                             <div style="color: green">0.2626</div>
+
+                                               <div class="service-block__provider-value"><i class="fa fa-usd"></i> 0.2600</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">50</span></div>
+                                               <div class="service-block__provider-value">50</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">20000</span></div>
+                                               <div class="service-block__provider-value">20000</div>                                            </td>
+                                            <td class="service-block__visibility">Active  </td>
+                                            <td class="service-block__action">
+                                              <div class="dropdown pull-right">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_service" data-id="9">Edit Service</a></li>
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_description" data-id="9">Edit Description</a></li>
+                                                                                                      <li><a href="https://smm.magicpi.top/admin/services/service-deactive/9">Disable Service</a></li>
+                                                  <li><a href="https://smm.magicpi.top/admin/services/del_price/9">Reset Discounts</a></li>
+                                                  <li><a href="#"data-toggle="modal" data-target="#confirmChange" data-href="https://smm.magicpi.top/admin/services/delete/9">Delete Service</a></li>
+                                                     
+                                                </ul>
+                                              </div>
+                                            </td>
+                                                                                 </tr>
+                                                                            <tr id="serviceshowcategory-1" class="ui-state-default "  data-category="category-1" data-id="service-10" data-service="Instagram Followers [Less Drop] No Refill">
+                                                                                     <td class="service-block__checker">
+                                                                                             <span></span>
+                                               <div class="service-block__checkbox">
+                                                  <div class="service-block__drag handle">
+                                                     <svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                           <title>Drag-Handle</title>
+                                                           <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                                                        </svg>
+                                                     </svg>
+                                                  </div>
+                                                  <input type="checkbox" class="selectOrder" name="service[10]" value="1" style="border:1px solid #fff">
+                                               </div>
+                                            </td>
+                                            <td class="service-block__id">10</td>
+                                            <td class="service-block__service">Instagram Followers [Less Drop] No Refill</td>
+                                            <td class="service-block__type" nowrap="">Default</td>
+                                            <td class="service-block__provider">starsmmpanels <div class="service-block__provider-value">18</div></td>
+                                            <td class="service-block__rate">
+                                                                                             <div style="color: green">0.39390000000000003</div>
+
+                                               <div class="service-block__provider-value"><i class="fa fa-usd"></i> 0.3900</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">10</span></div>
+                                               <div class="service-block__provider-value">10</div>                                            </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">50000</span></div>
+                                               <div class="service-block__provider-value">50000</div>                                            </td>
+                                            <td class="service-block__visibility">Active  </td>
+                                            <td class="service-block__action">
+                                              <div class="dropdown pull-right">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_service" data-id="10">Edit Service</a></li>
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_description" data-id="10">Edit Description</a></li>
+                                                                                                      <li><a href="https://smm.magicpi.top/admin/services/service-deactive/10">Disable Service</a></li>
+                                                  <li><a href="https://smm.magicpi.top/admin/services/del_price/10">Reset Discounts</a></li>
+                                                  <li><a href="#"data-toggle="modal" data-target="#confirmChange" data-href="https://smm.magicpi.top/admin/services/delete/10">Delete Service</a></li>
+                                                     
+                                                </ul>
+                                              </div>
+                                            </td>
+                                                                                 </tr>
+                                                                        </div>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+                              <div class="categories" data-id="2">
+                  <div class="  service-block__category ">
+                     <div class="service-block__category-title"  class="categorySortable" data-category="Facebook" id="category-2">
+                        <div class="service-block__drag handle">
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                              <title>Drag-Handle</title>
+                              <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                           </svg>
+                        </div>
+                        Facebook                        <div class="dropdown-inline">
+                          <div class="dropdown">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_category" data-id="2">Edit Category </a></li>
+                                                              <li><a href="https://smm.magicpi.top/admin/services/category-deactive/2">Disable Category</a></li>
+                                                            
+                            </ul>
+                          </div>
+                          </div>
+                        
+                          <div class="service-block__collapse-block"><div id="collapedAdd-2" class="service-block__collapse-button" data-category="category-2"></div></div>
+                                             </div>
+                     <div class="collapse in">
+                        <div class="service-block__packages">
+                           <table id="servicesTableList" class="Servicecategory-2">
+                              <tbody class="service-sortable">
+                                  <div class="serviceSortable" id="Servicecategory-2" data-id="category-2">
+                                                                           <tr id="serviceshowcategory-2" class="ui-state-default "  data-category="category-2" data-id="service-11" data-service="tgdjhfgj">
+                                                                                     <td class="service-block__checker">
+                                                                                             <span></span>
+                                               <div class="service-block__checkbox">
+                                                  <div class="service-block__drag handle">
+                                                     <svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                           <title>Drag-Handle</title>
+                                                           <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                                                        </svg>
+                                                     </svg>
+                                                  </div>
+                                                  <input type="checkbox" class="selectOrder" name="service[11]" value="1" style="border:1px solid #fff">
+                                               </div>
+                                            </td>
+                                            <td class="service-block__id">11</td>
+                                            <td class="service-block__service">tgdjhfgj</td>
+                                            <td class="service-block__type" nowrap="">Default</td>
+                                            <td class="service-block__provider">Manuel </td>
+                                            <td class="service-block__rate">
+                                                                                             <div style="">5</div>
+
+                                                                                           </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">100</span></div>
+                                                                                           </td>
+                                            <td class="service-block__minorder">
+                                               <div><span class="service-sync__wrap">1000</span></div>
+                                                                                           </td>
+                                            <td class="service-block__visibility">Active  </td>
+                                            <td class="service-block__action">
+                                              <div class="dropdown pull-right">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_service" data-id="11">Edit Service</a></li>
+                                                  <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_description" data-id="11">Edit Description</a></li>
+                                                                                                      <li><a href="https://smm.magicpi.top/admin/services/service-deactive/11">Disable Service</a></li>
+                                                  <li><a href="https://smm.magicpi.top/admin/services/del_price/11">Reset Discounts</a></li>
+                                                  <li><a href="#"data-toggle="modal" data-target="#confirmChange" data-href="https://smm.magicpi.top/admin/services/delete/11">Delete Service</a></li>
+                                                     
+                                                </ul>
+                                              </div>
+                                            </td>
+                                                                                 </tr>
+                                                                        </div>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+                              <div class="categories" data-id="3">
+                  <div class="  service-block__category ">
+                     <div class="service-block__category-title"  class="categorySortable" data-category="Youtube" id="category-3">
+                        <div class="service-block__drag handle">
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                              <title>Drag-Handle</title>
+                              <path d="M7 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6-8c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm0 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm0 6c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path>
+                           </svg>
+                        </div>
+                        Youtube                        <div class="dropdown-inline">
+                          <div class="dropdown">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-xs-caret" data-toggle="dropdown">Transactions <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a style="cursor:pointer;"  data-toggle="modal" data-target="#modalDiv" data-action="edit_category" data-id="3">Edit Category </a></li>
+                                                              <li><a href="https://smm.magicpi.top/admin/services/category-deactive/3">Disable Category</a></li>
+                                                            <li><a href="https://smm.magicpi.top/admin/services/del_cate/3">Delete Category</a></li>
+                                                            
+                            </ul>
+                          </div>
+                          </div>
+                                             </div>
+                     <div class="collapse in">
+                        <div class="service-block__packages">
+                           <table id="servicesTableList" class="Servicecategory-3">
+                              <tbody class="service-sortable">
+                                  <div class="serviceSortable" id="Servicecategory-3" data-id="category-3">
+                                                                           <tr id="serviceshowcategory-3" class="ui-state-default "  data-category="category-3" data-id="service-" data-service="">
+                                                                                </tr>
+                                                                        </div>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+              
+            
+
+              <input type="hidden" name="bulkStatus" id="bulkStatus" value="-1">
+
+            </form>
+         </div>
+      </div>
+   </div>
+
+</div>
+
+<div class="modal modal-center fade" id="confirmChange" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+ <div class="modal-dialog modal-dialog-center" role="document">
+   <div class="modal-content">
+     <div class="modal-body text-center">
+       <h4>Do You Confirm the Transaction?</h4>
+       <div align="center">
+         <a class="btn btn-primary" href="" id="confirmYes">Yes</a>
+         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+
+  <div class="modal fade in" id="modalDiv" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog__import modal-dialog" role="document" id="modalSize">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+         <h4 class="modal-title" id="modalTitle"></h4>
+       </div>
+       <div id="modalContent">
+       </div>
+     </div>
+   </div>
+  </div>
+
+
+<div class="modal fade in" id="managerModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">MANAGER</h4>
+      </div>
+      <div class="modal-body" style="padding: 0px;">
+<iframe src="https://smm.magicpi.top/admin/manager" style="width:100%;height: 700px;border:none;overflow:hidden;"></iframe>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade in" id="modalDiv" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document" id="modalSize">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+<h4 class="modal-title" id="modalTitle"></h4>
+</div>
+<div id="modalContent">
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+<script type="text/javascript" src="https://kit.fontawesome.com/1bf8354f0a.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link href="//gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="//gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="social.thietkeweb5s.net/admin/js/admin/bootstrap-select.js"></script>
+<script type="text/javascript" src="social.thietkeweb5s.net/admin/js/datepicker/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="social.thietkeweb5s.net/admin/js/datepicker/locales/bootstrap-datepicker.en.min.js"></script>
+<script src="social.thietkeweb5s.net/admin/js/admin/toastDemo.js"></script>
+<script src="social.thietkeweb5s.net/admin/js/admin/script.js"></script>
+<script src="social.thietkeweb5s.net/admin/js/admin/script-2.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="social.thietkeweb5s.net/admin/js/admin/jquery.tinytoggle.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+var site_url  = $('head base').attr('href');
+
+$('#summernote').summernote({
+height: 300,
+tabsize: 2
+});
+
+
+$(".service-sortable").sortable({handle: '.handle',
+update: function(event, ui) {
+var array = [];
+$(this).find('tr').each(function(i) {
+$(this).attr('data-line',i+1);
+var params = {};
+params['id']   = $(this).attr('data-id');
+params['line'] = $(this).attr('data-line');
+array.push(params);
+});
+$.post(site_url+'admin/ajax_data',{action:'service-sortable',services:array});
+}
+});
+
+$(".methods-sortable").sortable({handle: '.handle',
+update: function(event, ui) {
+var array = [];
+$(this).find('tr').each(function(i) {
+$(this).attr('data-line',i+1);
+var params = {};
+params['id']   = $(this).attr('data-id');
+params['line'] = $(this).attr('data-line');
+array.push(params);
+});
+$.post(site_url+'admin/ajax_data',{action:'paymentmethod-sortable',methods:array});
+}
+});
+
+$(".category-sortable").sortable({handle: '.handle',
+update: function(event, ui) {
+var array = [];
+$(this).find('.categories').each(function(i) {
+$(this).attr('data-line',i+1);
+var params = {};
+params['id']   = $(this).attr('data-id');
+params['line'] = $(this).attr('data-line');
+array.push(params);
+});
+$.post(site_url+'admin/ajax_data',{action:'category-sortable',categories:array});
+}
+});
+
+});
+$(function () {
+$('[data-toggle="tooltip"]').tooltip()
+});
+</script>
+
+
+</body>
+</html>

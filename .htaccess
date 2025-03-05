@@ -1,0 +1,49 @@
+<Files ~ "\.(laravel.log|env|composer.json|config.js|md|gitignore|gitattributes|lock|webpack.mix.js)$">
+    Order allow,deny
+    Deny from all
+</Files>
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+    
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+    Redirect 301 /san-pham/schema-pro-ban-chinh-thuc-tu-dong-tao-schema-tot-nhat /item/schema-pro-tao-sao-toi-uu-cau-truc-google.html
+    Redirect 301 /mobile/item/jnews---wordpress-newspaper-magazine-blog-amp-theme.html /mobile/item/jnews-wordpress-newspaper-magazine-blog-amp-theme.html
+    Redirect 301 /san-pham/key-vip-wpml-the-wordpress-multilingual-plugin-4271-tron-bo-addon /item/wpml-plugin-dich-ngon-ngu-so-1-hien-nay.html
+    Redirect 301 /san-pham/perfex-powerful-open-source-crm-phan-mem-quan-ly-chuyen-nghiep /item/perfex-powerful-open-source-crm-phan-mem-quan-ly-chuyen-nghiep.html
+    Redirect 301 /san-pham/wp-content-crawler-get-content-from-almost-any-site-automatically /item/wp-content-crawler-plugin-lay-noi-dung-tu-cac-website-khac.html
+    Redirect 301 /san-pham/google-related-keywords-generator-wordpress-seo-keyword-planner-tool /item/tron-bo-yoast-seo-premium-top-1-plugin-seo.html
+    Redirect 301 /san-pham/all-in-one-wp-migration-unlimited-extension /item/all-in-one-wp-migration-unlimited-extension.html
+    Redirect 301 /san-pham/generatepress-premium /item/tron-bo-yoast-seo-premium-top-1-plugin-seo.html
+    Redirect 301 /san-pham/max-mega-menu-pro /item/wp-mega-menu-pro-responsive-mega-menu-plugin-for-wordpress.html
+    Redirect 301 /san-pham/ultimate-affiliate-pro-wordpress-plugin /item/ultimate-affiliate-pro-wordpress-plugin.html
+    Redirect 301 /wordpress-themes/botble---laravel-cms-crud-generator-modular--theme-system-role-permissions-multilingual-blog.html /item/botble---laravel-cms-crud-generator-modular--theme-system-role-permissions-multilingual-blog.html
+    Redirect 301 /san-pham/smart-notification-wordpress-plugin /item/woocommerce-notification-boost-your-sales-live-feed-sales-recent-sales-popup-upsells.html
+    Redirect 301 /plugins-code-tay/wooswatches-woocommerce-color-or-image-variation-swatches.html /item/wooswatches-woocommerce-color-or-image-variation-swatches.html
+    Redirect 301 /wordpress-plugins/woof---woocommerce-products-filter.html /item/woof-woocommerce-products-filter.html
+    Redirect 301 /item/flatsome--multi-purpose-responsive-woocommerce-theme.html /item/flatsome-multi-purpose-responsive-woocommerce-theme.html
+    Redirect 301 /san-pham/yith-woocommerce-dynamic-pricing-and-discounts /item/flatsome-multi-purpose-responsive-woocommerce-theme.html
+    Redirect 301 /plugins-code-tay/image-map-pro-for-wordpress-svg-map-builder.html /item/image-map-pro-for-wordpress-svg-map-builder.html
+    Redirect 301 /san-pham/ithemes-security-pro-moi-nhat /ithemes-security-pro-plugin-bao-mat-chong-virus-so-1-cho-wordpress.html
+    Redirect 301 /wordpress-plugins/wp-media-file-manager---wordpress-media-library-folderscategories-upload-plugin.html /item/wp-media-file-manager-wordpress-media-library-folderscategories-upload-plugin.html
+    Redirect 301 /wordpress-plugins/fixed-toc---table-of-contents-for-wordpress-plugin.html /wordpress-plugins/fixed-toc-table-of-contents-for-wordpress-plugin.html
+    Redirect 301 /amp/item/chia-se.html /amp/chia-se.html
+    Redirect 301 /amp/item/cam-nang-kien-thuc.html /amp/cam-nang-kien-thuc.html
+    Redirect 301 /amp/cart /amp
+</IfModule>
+

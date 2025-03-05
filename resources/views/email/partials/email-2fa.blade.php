@@ -1,0 +1,1 @@
+<p>Use this code to sign in to your admin account:{{$code}}</p>
